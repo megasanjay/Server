@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Label Appointments </title>
+  <link rel="icon" type="image/png" sizes="32x32" href="http://52.39.225.46/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="http://52.39.225.46/favicon-16x16.png">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="labelAppointment.css">
+  <script type="text/javascript" src="labelAppointment.js"></script>
+</head>
+
+<body onload="checkPrivilege()">
+  <div class="topContainer">
+    <h1>
+      Label Appointments
+    </h1>
+  </div>
+  <br>
+  <div class="menuTab">
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" onclick="if (confirm('Do you want to go back to the homepage?')){sessionStorage.setItem('reloadConfirmed', 'false');window.open('TestingHomepage.html', '_self', false);}">Go Back to the HomePage</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" onclick="if (confirm('Do you want to log out?')){window.open('Login.html', '_self', false);}">Logout</a>
+      </li>
+    </ul>
+  </div>
+  <div id="refreshing" class="hidden">
+    <div class="lds-css ng-scope">
+      <div style="width:100%;height:100%" class="lds-wedges">
+        <div>
+          <div>
+            <div></div>
+          </div>
+          <div>
+            <div></div>
+          </div>
+          <div>
+            <div></div>
+          </div>
+          <div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="inputForm">
+    <div class="inputFieldset">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Patient ID</span>
+        </div>
+        <input id="idLabel" type="text" class="form-control" aria-label="Default" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">First Name</span>
+        </div>
+        <input id="firstNameLabel" type="text" class="form-control" aria-label="Default" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Last Name</span>
+        </div>
+        <input id="lastNameLabel" type="text" class="form-control" aria-label="Default" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Appointment Number</span>
+        </div>
+        <input id="apptNumLabel" type="text" class="form-control" aria-label="Default" readonly aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="labelValue">Appointment Type</label>
+        </div>
+        <select class="custom-select" id="labelValue">
+          <option disabled selected value="ns">Choose...</option>
+          <option value="initial">Initial Appointment</option>
+          <option value = "followUp">Follow Up Appointment</option>
+        </select>
+      </div>
+      <div class="btncontainer">
+        <button type="button" class="btn btn-secondary hvr-glow" onclick="moveAppointment('prev')"><i class="fas fa-angle-double-left"></i> Previous</button>
+        <button type="button" class="btn btn-primary hvr-glow" onclick="submitData();">Submit  <i class="fas fa-arrow-alt-circle-up"></i></button>
+        <button type="button" class="btn btn-secondary hvr-glow" onclick="moveAppointment('next')">Next  <i class="fas fa-angle-double-right"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+</body>
+
+</html>

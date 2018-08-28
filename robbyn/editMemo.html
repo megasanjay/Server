@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Editing Memos</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <link rel="icon" type="image/png" sizes="32x32" href="http://52.39.225.46/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="http://52.39.225.46/favicon-16x16.png">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="editMemo.css">
+  <script type="text/javascript" src="editMemo.js"></script>
+</head>
+
+<body onload="checkPrivilege()">
+  <div class="topContainer">
+    <h1>
+      Check memos for grammatical correctness
+    </h1>
+  </div>
+  <div class="menuTab">
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link" onclick="if (confirm('Do you want to go back to the homepage?')){sessionStorage.setItem('reloadConfirmed', 'false');window.open('TestingHomepage.html', '_self', false);}">Go Back to the HomePage</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" onclick="if (confirm('Do you want to log out?')){window.open('Login.html', '_self', false);}">Logout</a>
+      </li>
+    </ul>
+  </div>
+  <div class="mainContainer">
+    <div id="refreshing" class="hidden">
+      <div class="lds-css ng-scope">
+        <div style="width:100%;height:100%" class="lds-wedges">
+          <div>
+            <div>
+              <div></div>
+            </div>
+            <div>
+              <div></div>
+            </div>
+            <div>
+              <div></div>
+            </div>
+            <div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <textarea rows="17" cols="100" id="editTextBox" placeholder="Hello world" onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}"></textarea>
+    <br>
+    <button class="submitButton" onclick="submitMemo()"><span>Submit Memo</span></button>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+</body>
+
+</html>
