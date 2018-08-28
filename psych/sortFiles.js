@@ -27,7 +27,7 @@ function checkPrivilege() {
 }
 
 function checkForRefresh() {
-  var requestURL = "http://csci130.xyz/psych/Tester.php";
+  var requestURL = "http://52.39.225.46/psych/Tester.php";
   httpRequest = new XMLHttpRequest();
   httpRequest.onreadystatechange = function () {
     try {
@@ -35,7 +35,7 @@ function checkForRefresh() {
         if (httpRequest.status === 200) {
           var response = httpRequest.responseText;
           if (response == 1) {
-            var xrequestURL = "http://csci130.xyz/psych/Tester.php";
+            var xrequestURL = "http://52.39.225.46/psych/Tester.php";
             xhttpRequest = new XMLHttpRequest();
             xhttpRequest.onreadystatechange = function () {
               if (xhttpRequest.readyState === XMLHttpRequest.DONE) {
@@ -173,7 +173,7 @@ function submitGoalTime() {
     var goal = tempGoal;
     sessionStorage.setItem("sortFilesTimerStatus", "timerComplete");
 
-    var requestURL = "http://csci130.xyz/psych/goals.php";
+    var requestURL = "http://52.39.225.46/psych/goals.php";
     httpRequest = new XMLHttpRequest();
     httpRequest.open('POST', requestURL);
     httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -216,7 +216,7 @@ function submitData() {
 }
 
 function sendData(temp) {
-  var requestURL = "http://csci130.xyz/psych/sortFiles.php";
+  var requestURL = "http://52.39.225.46/psych/sortFiles.php";
   httpRequest = new XMLHttpRequest();
   httpRequest.onreadystatechange = confirmSave;
   httpRequest.open('POST', requestURL);
