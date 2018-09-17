@@ -152,21 +152,24 @@ function styleButtons(loadState) {
 }
 
 function limitedNotMetColor(name) {
+  document.getElementById(name).classList.add("purple");
   document.getElementById(name).classList.remove("blue");
   document.getElementById(name).classList.remove("yellow");
-  document.getElementById(name).classList.add("purple");
+  document.getElementById(name).classList.remove("purpleborder");
 }
 
 function limitedMetColor(name) {
   document.getElementById(name).classList.add("purpleborder");
   document.getElementById(name).classList.remove("yellow");
   document.getElementById(name).classList.remove("purple");
+  document.getElementById(name).classList.remove("blue");
 }
 
 function limiterColor(name) {
-  document.getElementById(name).classList.remove("blue");
   document.getElementById(name).classList.add("yellow");
+  document.getElementById(name).classList.remove("blue");
   document.getElementById(name).classList.remove("purple");
+  document.getElementById(name).classList.remove("purpleborder");
 }
 
 function checkRestrictions() {
