@@ -201,8 +201,8 @@ function checkForCompletion(position) {
       }
       limitArray = JSON.stringify(limitArray);
       sessionStorage.setItem("limitors", limitArray);
+      alert("Goal Complete");
       if (sessionStorage.getItem("memoStatus") != "unrestricted"){
-        alert("Goal Complete");
         sessionStorage.setItem("memoStatus", "unrestricted");
       }
     }

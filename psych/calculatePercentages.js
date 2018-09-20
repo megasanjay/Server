@@ -216,8 +216,8 @@ function checkForCompletion() {
       }
       limitArray = JSON.stringify(limitArray);
       sessionStorage.setItem("limitors", limitArray);
+      alert("Goal Complete");
       if (sessionStorage.getItem("percentageStatus") != "unrestricted"){
-        alert("Goal Complete");
         sessionStorage.setItem("percentageStatus", "unrestricted");
       }
     }

@@ -210,25 +210,19 @@ function checkForCompletion() {
       }
       limitArray = JSON.stringify(limitArray);
       sessionStorage.setItem("limitors", limitArray);
+      alert("Goal Complete");
       if (sessionStorage.getItem("financialStatus") != "unrestricted"){
-        alert("Goal Complete");
         sessionStorage.setItem("financialStatus", "unrestricted");
-      }
-      else {
-        //sessionStorage.setItem("financialStatus", "unrestricted");
       }
     }
     else{
       if (sessionStorage.getItem("unlimitedFinancialStatus") != "unrestricted"){
-        //alert("yes");
         alert("Goal Complete!");
         sessionStorage.setItem("unlimitedFinancialStatus", "unrestricted");
       }
       else {
-        //alert("no");
         sessionStorage.setItem("unlimitedFinancialStatus", "unrestricted");
       }
-      //alert{"Goal Complete!"};  // new lines
     }
     submitGoalTime();
   }

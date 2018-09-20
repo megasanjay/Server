@@ -151,8 +151,8 @@ function checkForCompletion(position) {
       limitArray = JSON.stringify(limitArray);
       sessionStorage.setItem("limitors", limitArray);
       sessionStorage.setItem("filesSorted", 0);
+      alert("Goal Complete");
       if (sessionStorage.getItem("sortFilesStatus") != "unrestricted"){
-        alert("Goal Complete");
         sessionStorage.setItem("sortFilesStatus", "unrestricted");
       }
     }
@@ -162,7 +162,6 @@ function checkForCompletion(position) {
         sessionStorage.setItem("unlimitedsortFilesStatus", "unrestricted");
       }
     }
-
     submitGoalTime();
   }
 }
