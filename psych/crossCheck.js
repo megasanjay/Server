@@ -218,6 +218,7 @@ function checkForCompletion() {
       limitArray = JSON.stringify(limitArray);
       sessionStorage.setItem("limitors", limitArray);
       window.open("TestingHomepage.html", "_self", false);
+      return;
     }
 
     if (goalStatus == "fullyMet") { return; }
@@ -240,7 +241,7 @@ function checkForCompletion() {
     }
     else {
       if (sessionStorage.getItem("unlimitedcrossCheckStatus") != "unrestricted"){
-        alert("Goal Complete!");
+        //alert("Goal Complete!");
         sessionStorage.setItem("unlimitedcrossCheckStatus", "unrestricted");
       }
     }

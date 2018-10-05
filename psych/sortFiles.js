@@ -135,6 +135,7 @@ function checkForCompletion(position) {
       sessionStorage.setItem("limitors", limitArray);
       sessionStorage.removeItem("filesSorted");
       window.open("TestingHomepage.html", "_self", false);
+      return;
     }
 
     if (goalStatus == "fullyMet") { return; }
@@ -158,7 +159,6 @@ function checkForCompletion(position) {
     }
     else {
       if (sessionStorage.getItem("unlimitedsortFilesStatus") != "unrestricted"){
-        alert("Goal Complete");
         sessionStorage.setItem("unlimitedsortFilesStatus", "unrestricted");
       }
     }

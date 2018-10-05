@@ -197,6 +197,7 @@ function checkForCompletion() {
       limitArray = JSON.stringify(limitArray);
       sessionStorage.setItem("limitors", limitArray);
       window.open("TestingHomepage.html", "_self", false);
+      return;
     }
     if (goalStatus == "fullyMet") { return; }
     if (goalStatus == "limiterGoals")  {
