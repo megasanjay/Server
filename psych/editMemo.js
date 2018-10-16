@@ -274,7 +274,13 @@ function displayMemo() {
         var response = httpRequest.responseText;
         if (response == "")
         {
-          alert("End of Data");
+          tGoal = sessionStorage.getItem("memoGoal");
+          position = sessionStorage.getItem("lastMemoViewed");
+          difference = tgoal - position + 1;
+          sessionStorage.setItem(memoGoal, parseInt(difference));
+          sessionStorage.setItem("lastMemoViewed", 1);
+          alert("End of Data...restarting...");
+          loadMemo();
           return;
         }
         console.log(response);
