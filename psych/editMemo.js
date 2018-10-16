@@ -213,8 +213,8 @@ function checkForCompletion(position) {
         sessionStorage.setItem("unlimitedmemoStatus", "unrestricted");
       }
     }
+    submitGoalTime();
   }
-  submitGoalTime();
 }
 
 function submitGoalTime() {
@@ -272,12 +272,14 @@ function displayMemo() {
     if (httpRequest.readyState === XMLHttpRequest.DONE) {
       if (httpRequest.status === 200) {
         var response = httpRequest.responseText;
+        console.log(response);
         if (response == "")
         {
           tGoal = sessionStorage.getItem("memoGoal");
           position = sessionStorage.getItem("lastMemoViewed");
           difference = tgoal - position + 1;
-          sessionStorage.setItem(memoGoal, parseInt(difference));
+          console.log(difference);
+          sessionStorage.setItem("memoGoal", parseInt(difference));
           sessionStorage.setItem("lastMemoViewed", 1);
           alert("End of Data...restarting...");
           loadMemo();
