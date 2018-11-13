@@ -4,7 +4,7 @@ var tempGoal, goalStatus;
 
 function checkPrivilege() {
   user = sessionStorage.getItem("currentUser");
-
+  sessionStorage.setItem("unlimitedFinancialStatus", "restricted");
   tempGoal = sessionStorage.getItem("tempGoal");
 
   // Checks if user is logged in

@@ -5,6 +5,7 @@ goalStatus;
 
 function checkPrivilege() {
   user = sessionStorage.getItem('currentUser');
+  sessionStorage.setItem("unlimitedmemoStatus", "restricted");
   tempGoal = sessionStorage.getItem('tempGoal');
   if (user == undefined) {
     alert('Please log into your account.');
@@ -160,6 +161,7 @@ function checkForCompletion(position) {
   if (parseInt(position) > parseInt(goal)) {
     sessionStorage.setItem('memoGoal', parseInt(goal) + parseInt(tempGoal));
     sessionStorage.setItem('currentStatus', 'goalMet');
+
     if (goalStatus == 'limitedGoals') {
       let limitArray = sessionStorage.getItem('limitors');
       limitArray = JSON.parse(limitArray);
@@ -192,8 +194,12 @@ function checkForCompletion(position) {
       }
     } 
     else {
-      if (sessionStorage.getItem('unlimitedmemoStatus') != 'unrestricted') {
-        sessionStorage.setItem('unlimitedmemoStatus', 'unrestricted');
+      if (sessionStorage.getItem("unlimitedmemoStatus") != "unrestricted"){
+        alert("Goal Complete!");
+        sessionStorage.setItem("unlimitedmemoStatus", "unrestricted");
+      }
+      else {
+        sessionStorage.setItem("unlimitedmemoStatus", "unrestricted");
       }
     }
     submitGoalTime();

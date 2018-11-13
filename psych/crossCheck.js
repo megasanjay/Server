@@ -4,7 +4,7 @@ var tempGoal, goalStatus;
 
 function checkPrivilege() {
   user = sessionStorage.getItem("currentUser");
-
+  sessionStorage.setItem("unlimitedcrossCheckStatus", "restricted");
   tempGoal = sessionStorage.getItem("tempGoal");
 
   // Checks if user is logged in
@@ -201,8 +201,6 @@ function checkForCompletion() {
   }
 
   if (parseInt(rowCount) >= parseInt(goal)) {
-
-
     sessionStorage.setItem("crossCheckGoal", parseInt(goal) + parseInt(tempGoal));
     sessionStorage.setItem("currentStatus", "goalMet");
 
@@ -241,7 +239,10 @@ function checkForCompletion() {
     }
     else {
       if (sessionStorage.getItem("unlimitedcrossCheckStatus") != "unrestricted"){
-        //alert("Goal Complete!");
+        alert("Goal Complete!");
+        sessionStorage.setItem("unlimitedcrossCheckStatus", "unrestricted");
+      }
+      else {
         sessionStorage.setItem("unlimitedcrossCheckStatus", "unrestricted");
       }
     }

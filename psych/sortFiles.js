@@ -3,7 +3,7 @@ var tempGoal, goalStatus;
 
 function checkPrivilege() {
   user = sessionStorage.getItem("currentUser");
-
+  sessionStorage.setItem("unlimitedsortFilesStatus", "restricted");
   tempGoal = sessionStorage.getItem("tempGoal");
 
   // Checks if user is logged in
@@ -159,6 +159,10 @@ function checkForCompletion(position) {
     }
     else {
       if (sessionStorage.getItem("unlimitedsortFilesStatus") != "unrestricted"){
+        alert("Goal Complete!");
+        sessionStorage.setItem("unlimitedsortFilesStatus", "unrestricted");
+      }
+      else {
         sessionStorage.setItem("unlimitedsortFilesStatus", "unrestricted");
       }
     }

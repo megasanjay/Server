@@ -4,7 +4,7 @@ var tempGoal, goalStatus;
 
 function checkPrivilege() {
   user = sessionStorage.getItem("currentUser");
-
+  sessionStorage.setItem("unlimitedpercentageStatus", "restricted");
   tempGoal = sessionStorage.getItem("tempGoal");
 
   // Checks if user is logged in
@@ -224,7 +224,10 @@ function checkForCompletion() {
     }
     else {
       if (sessionStorage.getItem("unlimitedpercentageStatus") != "unrestricted"){
-        //alert("Goal Complete!");
+        alert("Goal Complete!");
+        sessionStorage.setItem("unlimitedpercentageStatus", "unrestricted");
+      }
+      else {
         sessionStorage.setItem("unlimitedpercentageStatus", "unrestricted");
       }
     }
